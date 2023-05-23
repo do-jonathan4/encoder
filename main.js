@@ -1,4 +1,4 @@
-const [reverse, asc, copy, paste] = document.querySelectorAll('button')
+const [reverse, asc, copy, paste, clear] = document.querySelectorAll('button')
 const txtarea = document.querySelector('textarea')
 const alert = document.querySelector('.alert')
 
@@ -28,7 +28,6 @@ asc.addEventListener('click', () => {
 copy.addEventListener('click', () => {
     navigator.clipboard.writeText(txtarea.value)
 })
-
 copy.addEventListener('mousedown', () => {
     alert.classList.remove('d-none')
 })
@@ -39,5 +38,9 @@ copy.addEventListener('mouseup', () => {
 paste.addEventListener('click', () => {
     navigator.clipboard.readText()
     .then(x => txtarea.value = x)
+})
+
+clear.addEventListener('click', () => {
+    txtarea.value = ''
 })
 
